@@ -13,7 +13,7 @@
 
 
 //Change the below letter to generate the different STL files:
-grid_letter = "D"; 
+grid_letter = "A"; 
 
 //Parameters normally not changed
 grid_start = 1;
