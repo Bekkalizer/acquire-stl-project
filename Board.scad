@@ -23,11 +23,11 @@ inside_margin_factor = 0.93;
 
 pyramid_base = pyramid_hole_in_building_width * inside_margin_factor; //Same dimensions as pyramid hole in buildings, minus an inside margin
 pyramid_height = 3;
-spacing_margin = 2.5;
+spacing_margin = 1.8;
 spacing = building_width - pyramid_hole_in_building_width + spacing_margin;
 board_thickness = 2;
 font_name = "DIN Condensed:style=Bold";
-font_size = 6;             // Adjusted to take up most of the top surface
+font_size = 6.5;             // Adjusted to take up most of the top surface
 etch_depth = 0.5;               // Depth of etching
 
 
@@ -42,9 +42,9 @@ board_depth = rows * (pyramid_base + spacing);
 
 
 labels = [
-    ["I12","I11","I10"],
-    ["J1","J2","J3"],
-    ["B9","B10","B11"]
+    ["C12","C11","F10"],
+    ["D1","D2","E3"],
+    ["H4","H5","E8"]
 ];
 
 union() {
