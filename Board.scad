@@ -12,8 +12,10 @@
 
 
 // ===== Parameters =====
-rows = 3;
-cols = 3;
+rows = 9;
+cols = 12;
+start_row = 0;
+start_col = 0;
 
 building_width = 19.2;
 pyramid_hole_in_building_width = building_width*0.8;
@@ -40,12 +42,8 @@ pyramid_top = pyramid_hole_in_building_width * (1 - t) * inside_margin_factor;
 board_width = cols * (pyramid_base + spacing);
 board_depth = rows * (pyramid_base + spacing);
 
-
-labels = [
-    ["C12","C11","F10"],
-    ["D1","D2","E3"],
-    ["H4","H5","E8"]
-];
+row_labels = ["I", "H", "G", "F", "E", "D", "C", "B", "A"];
+col_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
 union() {
     // Base board
@@ -55,7 +53,7 @@ union() {
     translate([spacing/2, spacing/2, 0]) {
         for (row = [0 : rows - 1]) {
             for (col = [0 : cols - 1]) {
-                label = str(labels[col][row]);
+                label = str(row_labels[start_row + row], col_labels[start_col + col]);
 
                 translate([
                     col * (pyramid_base + spacing) + pyramid_base / 2,
