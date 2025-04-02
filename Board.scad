@@ -11,56 +11,72 @@
 //       Print and play - OpenScad project - by Bekkalizer and ChatGPT
 
 
-// ===== Parameters =====
-rows = 9;
-cols = 12;
-start_row = 0;
-start_col = 0;
+//Uncomment the draw_board option relevant:
 
+//3X3 test:
+//draw_board( rows = 3, cols = 3, start_row = 0, start_col = 0);
+
+//Full board:
+draw_board( rows = 9, cols = 12, start_row = 0, start_col = 0);
+
+//4 Split, bottom left:
+//draw_board( rows = 4, cols = 6, start_row = 0, start_col = 0, right_male = true, top_male = true, left_female = false, bottom_female = false);
+//4 Split, bottom right:
+//draw_board( rows = 4, cols = 6, start_row = 0, start_col = 6, right_male = false, top_male = true, left_female = false, bottom_female = false);
+//4 Split, top left:
+//draw_board( rows = 5, cols = 6, start_row = 4, start_col = 0, right_male = true, top_male = false, left_female = false, bottom_female = true);
+//4 Split, top right:
+//draw_board( rows = 5, cols = 6, start_row = 4, start_col = 6, right_male = false, top_male = false, left_female = true, bottom_female = true);
+
+
+// ===== Parameters =====
+board_thickness = 2;
+font_name = "DIN Condensed:style=Bold";
+font_size = 6.5;             // Adjusted to take up most of the top surface
+etch_depth = 0.5;               // Depth of etching
+
+row_labels = ["I", "H", "G", "F", "E", "D", "C", "B", "A"];
+col_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
+
+//Globally alined sizes and margins, change with care:
 building_width = 19.2;
 pyramid_hole_in_building_width = building_width*0.8;
 pyramid_hole_in_building_height = 10;
 
 inside_margin_factor = 0.93;
 
-pyramid_base = pyramid_hole_in_building_width * inside_margin_factor; //Same dimensions as pyramid hole in buildings, minus an inside margin
 pyramid_height = 3;
 spacing_margin = 1.8;
-spacing = building_width - pyramid_hole_in_building_width + spacing_margin;
-board_thickness = 2;
-font_name = "DIN Condensed:style=Bold";
-font_size = 6.5;             // Adjusted to take up most of the top surface
-etch_depth = 0.5;               // Depth of etching
 
-
-//Calculate pyramid top width at given height, with a 
-t = pyramid_height / pyramid_hole_in_building_height;
-pyramid_top = pyramid_hole_in_building_width * (1 - t) * inside_margin_factor; 
+module draw_board(rows = 9,cols = 12, start_row = 0, start_col = 0, right_male = false, top_male = false, left_female = false, bottom_female = false) {
+    union() {
+        spacing = building_width - pyramid_hole_in_building_width + spacing_margin;
         
+        pyramid_base = pyramid_hole_in_building_width * inside_margin_factor; //Same dimensions as pyramid hole in buildings, minus an inside margin
+        
+        board_width = cols * (pyramid_base + spacing);
+        board_depth = rows * (pyramid_base + spacing);
 
-// ===== Main Model =====
-board_width = cols * (pyramid_base + spacing);
-board_depth = rows * (pyramid_base + spacing);
+        // Base board
+        cube([board_width, board_depth, board_thickness]);
 
-row_labels = ["I", "H", "G", "F", "E", "D", "C", "B", "A"];
-col_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+        // Grid of pyramids
+        //Calculate pyramid top width at given height, with a 
+        t = pyramid_height / pyramid_hole_in_building_height;
+        pyramid_top = pyramid_hole_in_building_width * (1 - t) * inside_margin_factor;
+        translate([spacing/2, spacing/2, 0]) {
+            for (row = [0 : rows - 1]) {
+                for (col = [0 : cols - 1]) {
+                    label = str(row_labels[start_row + row], col_labels[start_col + col]);
 
-union() {
-    // Base board
-    cube([board_width, board_depth, board_thickness]);
-
-    // Grid of pyramids
-    translate([spacing/2, spacing/2, 0]) {
-        for (row = [0 : rows - 1]) {
-            for (col = [0 : cols - 1]) {
-                label = str(row_labels[start_row + row], col_labels[start_col + col]);
-
-                translate([
-                    col * (pyramid_base + spacing) + pyramid_base / 2,
-                    row * (pyramid_base + spacing) + pyramid_base / 2,
-                    board_thickness
-                ])
-                    flat_top_pyramid(pyramid_base, pyramid_top, pyramid_height, label);
+                    translate([
+                        col * (pyramid_base + spacing) + pyramid_base / 2,
+                        row * (pyramid_base + spacing) + pyramid_base / 2,
+                        board_thickness
+                    ])
+                        flat_top_pyramid(pyramid_base, pyramid_top, pyramid_height, label);
+                }
             }
         }
     }
@@ -110,9 +126,10 @@ module flat_top_pyramid(base_size, top_size, height, label = "") {
 
 }
 
-// dummy cubes for debugging purpose
-module showDebugCubes() {
-    translate([3,-5, 5]) cube([3,20,3]);
-    translate([-10, 5, 5]) cube([30,3,3]);
-    translate([3, 3, 0]) cube([3,3,45]);
+// show the index of all points at the corresponding location
+module showPoints(v) {
+    for (i = [0: len(v)-1]) {
+        translate(v[i]) color("red") 
+        text(str(i), font = "Courier New", size=1.5);
+    }
 }
