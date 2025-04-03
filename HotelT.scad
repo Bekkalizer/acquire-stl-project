@@ -28,7 +28,6 @@ module castle_top() {
         for( i = [0 : segments] ) {
             translate([0,i * segment_width * 2, 0]) {
                 cube([wall_width, segment_width, segment_height]);
-                echo([wall_width, segment_width, segment_height]);
             }
         }
     }
