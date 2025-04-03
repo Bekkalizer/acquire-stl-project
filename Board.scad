@@ -16,8 +16,11 @@
 //3X3 test:
 //draw_board( rows = 3, cols = 3, start_row = 0, start_col = 0);
 
+//3X3 test with connectors on all sides:
+draw_board( rows = 2, cols = 2, start_row = 0, start_col = 0, right_male = true, top_male = true, left_female = true, bottom_female = true);
+
 //Full board:
-draw_board( rows = 9, cols = 12, start_row = 0, start_col = 0);
+//draw_board( rows = 9, cols = 12, start_row = 0, start_col = 0);
 
 //4 Split, bottom left:
 //draw_board( rows = 4, cols = 6, start_row = 0, start_col = 0, right_male = true, top_male = true, left_female = false, bottom_female = false);
@@ -32,8 +35,12 @@ draw_board( rows = 9, cols = 12, start_row = 0, start_col = 0);
 // ===== Parameters =====
 board_thickness = 2;
 font_name = "DIN Condensed:style=Bold";
-font_size = 6.5;             // Adjusted to take up most of the top surface
-etch_depth = 0.5;               // Depth of etching
+font_size = 6.5;
+etch_depth = 0.5;
+
+$fn = 20;
+connector_radius = 2.5;
+connector_margin = 0.5;
 
 row_labels = ["I", "H", "G", "F", "E", "D", "C", "B", "A"];
 col_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -51,33 +58,70 @@ spacing_margin = 1.8;
 
 module draw_board(rows = 9,cols = 12, start_row = 0, start_col = 0, right_male = false, top_male = false, left_female = false, bottom_female = false) {
     union() {
+        // Base board
         spacing = building_width - pyramid_hole_in_building_width + spacing_margin;
-        
         pyramid_base = pyramid_hole_in_building_width * inside_margin_factor; //Same dimensions as pyramid hole in buildings, minus an inside margin
-        
         board_width = cols * (pyramid_base + spacing);
         board_depth = rows * (pyramid_base + spacing);
+        
+        difference() {
+            cube([board_width, board_depth, board_thickness]);
+            female_connectors(true, true, cols, rows, spacing + pyramid_base);
+        }
 
-        // Base board
-        cube([board_width, board_depth, board_thickness]);
+        //male connector top:
+        if( top_male ) {
+            for(i = [1 : cols - 1]) {
+                translate([i * (spacing + pyramid_base), board_depth + connector_radius * 2 / 3, 0 ])
+                    cylinder(h = board_thickness, r = connector_radius );
+            }
+        }
+        
+        //male connector right:
+        if( right_male ) {
+            for(i = [1 : rows - 1]) {
+                translate([board_width + connector_radius * 2 / 3 - connector_margin / 2, i * (spacing + pyramid_base), 0 ])
+                    cylinder(h = board_thickness, r = connector_radius );
+            }
+        }
 
         // Grid of pyramids
-        //Calculate pyramid top width at given height, with a 
+        //Calculate pyramid top width at given height
         t = pyramid_height / pyramid_hole_in_building_height;
         pyramid_top = pyramid_hole_in_building_width * (1 - t) * inside_margin_factor;
-        translate([spacing/2, spacing/2, 0]) {
-            for (row = [0 : rows - 1]) {
-                for (col = [0 : cols - 1]) {
-                    label = str(row_labels[start_row + row], col_labels[start_col + col]);
+//        translate([spacing/2, spacing/2, 0]) {
+//            for (row = [0 : rows - 1]) {
+//                for (col = [0 : cols - 1]) {
+//                    label = str(row_labels[start_row + row], col_labels[start_col + col]);
+//
+//                    translate([
+//                        col * (pyramid_base + spacing) + pyramid_base / 2,
+//                        row * (pyramid_base + spacing) + pyramid_base / 2,
+//                        board_thickness
+//                    ])
+//                        flat_top_pyramid(pyramid_base, pyramid_top, pyramid_height, label);
+//                }
+//            }
+//        }
+    }
+}
 
-                    translate([
-                        col * (pyramid_base + spacing) + pyramid_base / 2,
-                        row * (pyramid_base + spacing) + pyramid_base / 2,
-                        board_thickness
-                    ])
-                        flat_top_pyramid(pyramid_base, pyramid_top, pyramid_height, label);
-                }
-            }
+module female_connectors(bottom_female = true, left_female = true, cols = 12, rows = 9, connector_spacing = 1) {
+    //female radius must have a some room to fit male
+    female_connector_radius = connector_radius + connector_margin;
+    //female connector bottom:
+    if( bottom_female ) {
+        for(i = [1 : cols - 1]) {
+            translate([i * (connector_spacing), female_connector_radius * 2 / 3, 0 ])
+                cylinder(h = board_thickness, r = female_connector_radius );
+        }
+    }
+    
+    //female connector left:
+    if( left_female ) {
+        for(i = [1 : rows - 1]) {
+            translate([female_connector_radius * 2 / 3, i * (connector_spacing), 0 ])
+                cylinder(h = board_thickness, r = female_connector_radius );
         }
     }
 }
