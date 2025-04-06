@@ -17,7 +17,7 @@
 //draw_board( rows = 3, cols = 3, start_row = 0, start_col = 0);
 
 //3X3 test with connectors on all sides:
-draw_board( rows = 2, cols = 2, start_row = 0, start_col = 0, right_male = true, top_male = true, left_female = true, bottom_female = true);
+draw_board( rows = 3, cols = 3, start_row = 0, start_col = 0, right_male = true, top_male = true, left_female = true, bottom_female = true);
 
 //Full board:
 //draw_board( rows = 9, cols = 12, start_row = 0, start_col = 0);
@@ -40,7 +40,8 @@ etch_depth = 0.5;
 
 $fn = 20;
 connector_radius = 2.5;
-connector_margin = 0.5;
+connector_margin = 0.4;
+connector_brim_margin = 0.4;
 
 row_labels = ["I", "H", "G", "F", "E", "D", "C", "B", "A"];
 col_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -72,7 +73,7 @@ module draw_board(rows = 9,cols = 12, start_row = 0, start_col = 0, right_male =
         //male connector top:
         if( top_male ) {
             for(i = [1 : cols - 1]) {
-                translate([i * (spacing + pyramid_base), board_depth + connector_radius * 2 / 3, 0 ])
+                translate([i * (spacing + pyramid_base), board_depth + connector_radius * 2 / 3 + connector_margin/2 + connector_brim_margin, 0 ])
                     cylinder(h = board_thickness, r = connector_radius );
             }
         }
@@ -80,7 +81,7 @@ module draw_board(rows = 9,cols = 12, start_row = 0, start_col = 0, right_male =
         //male connector right:
         if( right_male ) {
             for(i = [1 : rows - 1]) {
-                translate([board_width + connector_radius * 2 / 3 - connector_margin / 2, i * (spacing + pyramid_base), 0 ])
+                translate([board_width + connector_radius * 2 / 3 + connector_margin/2 + connector_brim_margin, i * (spacing + pyramid_base), 0 ])
                     cylinder(h = board_thickness, r = connector_radius );
             }
         }
