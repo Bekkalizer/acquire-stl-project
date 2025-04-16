@@ -10,7 +10,7 @@
     \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
                             \___|                                      
       
-    Print and play - OpenScad project - by Bekkalizer and ChatGPT
+    Print and play - OpenScad project - by Bekkalizer and ChatGPT - GPLv3
 
 This repository contains OpenSCAD files and generated STLs for 3d printing components for the Acquire board game.
 
