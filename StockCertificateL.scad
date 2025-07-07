@@ -29,19 +29,19 @@
 use <CommonModules.scad>
 
 // ============== Parameters ==============
-width = 7;
-height = 15;
-thickness = 0.7;
-extrusion = 0.3;
+width = 14;
+height = 25;
+thickness = 1.5;
+extrusion = 0.5;
 
 label = "Stock";
 
 frame_width = 0.3;
 
 font_name = "DIN Condensed:style=Bold";
-font_size = 4;
+font_size = 5.5;
 
-symbol_factor = 0.3;
+symbol_factor = 0.6;
 symbol_bottom_width = 19.5 * symbol_factor;
 symbol_bottom_height = 5 * symbol_factor;
 symbol_step_height = 2 * symbol_factor;
