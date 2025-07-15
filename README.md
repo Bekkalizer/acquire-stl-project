@@ -14,5 +14,5 @@
 
 This repository contains OpenSCAD files and generated STLs for 3d printing components for the Acquire board game.
 
-[Building.scad](Building.scad)
+[openscad-source/Building.scad](Building.scad)
 Used to generate buildings STL files. Default behavior is to generate all buildings for one letter.
