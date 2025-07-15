@@ -13,7 +13,7 @@
 
 # Guide to the source files
 
-[Board.scad](Board.scad) contains the code for rendering the board. Renders [board-9pcs](../stl-renders/board-9pcs), [board-9pcs](../stl-renders/board-4pcs) and [board-9pcs](../stl-renders/board-full) with different parameters.
+[Board.scad](Board.scad) contains the code for rendering the board. Renders [board-9pcs](../stl-renders/board-9pcs), [board-4pcs](../stl-renders/board-4pcs) and [board-full](../stl-renders/board-full) with different parameters.
 
 [Building.scad](Building.scad) contains the code for rendering the buildings. Renders the files in  [buildings](../stl-renders/buildings) using different parameters.
 
