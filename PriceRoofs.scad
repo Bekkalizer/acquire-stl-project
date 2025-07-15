@@ -53,16 +53,17 @@ module price_roof_grid (starting_price) {
     grid_positions = [ for (i = [0:grid_columns-1], j = [0:grid_columns-1]) [i * (bottom_width + grid_spacing), j * (bottom_width + grid_spacing), 0] ];
 
     for (i = [0:grid_size]) {
-        translate(grid_positions[i]) price_roof(str(i+starting_price, "M$"), hotelSizes[i]);
+        height_factor = i == 0 ? starting_price - 1 : 1;
+        translate(grid_positions[i]) price_roof(str(i+starting_price, "M$"), hotelSizes[i], height_factor);
     }
 }
 
-module price_roof(price_text = "2M$", size_text = "2^") {
+module price_roof(price_text = "2M$", size_text = "2^", height_factor = 1) {
     union () {
-        cube_with_extruded_bottom([bottom_width, bottom_width, bottom_height]);
+        cube_with_extruded_bottom([bottom_width, bottom_width, bottom_height * height_factor]);
         
         // Top cube positioned above base
-        translate([top_lip, top_lip, bottom_height - text_height]){
+        translate([top_lip, top_lip, bottom_height * height_factor - text_height]){
             
             cube([top_width,top_width,top_height]);
             
