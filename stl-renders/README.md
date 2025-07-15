@@ -12,7 +12,7 @@
     Print and play - OpenScad project - by Bekkalizer and ChatGPT - GPLv3
 
 # Guide to printing your own game
-Poker chips and the [reduced $ reference sheet](https://boardgamegeek.com/filepage/263169/acquire-stockholder-info-sheet-reduced-dollar) from boardgame geek is the recommended non-printable components you would need. For everything else, print the game pieces by the instrctions below.
+Poker chips and the [reduced $ reference sheet](https://boardgamegeek.com/filepage/263169/acquire-stockholder-info-sheet-reduced-dollar) from boardgame geek is the recommended non-printable components you would need. For everything else, print the game pieces by the instructions below.
 
 ## Boards
 **TLDR: Print all files in [board-9pcs](board-9pcs)**
