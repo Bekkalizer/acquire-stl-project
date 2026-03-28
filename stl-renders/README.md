@@ -9,7 +9,7 @@
     \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
                             \___|                                      
       
-    Print and play - OpenScad project - by Bekkalizer and ChatGPT - GPLv3
+    Print and play - OpenScad project - by Bekkalizer and Claude - GPLv3
 
 # Guide to printing your own game
 Poker chips and the [reduced $ reference sheet](https://boardgamegeek.com/filepage/263169/acquire-stockholder-info-sheet-reduced-dollar) from boardgame geek is the recommended non-printable components you would need. For everything else, print the game pieces by the instructions below.
@@ -35,10 +35,10 @@ This is the pairing of hotels and price roofs.
 | Hotel name | Reference color | Hotel file | Price roof file | Stock certificate file |
 |------------|-----------------|------------|-----------------|------------------------|
 | Luxor(Sackson) | Red | [HotelL.stl](hotels/HotelL.stl) | [PriceRoofsLT.stl](hotels/PriceRoofsLT.stl) | [StockCertificateL.stl](stock-certificates/StockCertificateL.stl) |
-| Tower | Yellow | [HotelT.stl](hotels/HotelT.stl) | [PriceRoofsLT.stl](hotels/PriceRoofsLT.stl) | Coming soon |
-| American | Dark blue | [HotelA.stl](hotels/HotelA.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | Coming soon |
-| Festival | Green | [HotelF.stl](hotels/HotelF.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | Coming soon |
-| Worldwide | Purple | [HotelW.stl](hotels/HotelW.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | Coming soon |
+| Tower | Yellow | [HotelT.stl](hotels/HotelT.stl) | [PriceRoofsLT.stl](hotels/PriceRoofsLT.stl) | [StockCertificateT.stl](stock-certificates/StockCertificateT.stl) |
+| American | Dark blue | [HotelA.stl](hotels/HotelA.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | [StockCertificateA.stl](stock-certificates/StockCertificateA.stl) |
+| Festival | Green | [HotelF.stl](hotels/HotelF.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | [StockCertificateF.stl](stock-certificates/StockCertificateF.stl) |
+| Worldwide | Purple | [HotelW.stl](hotels/HotelW.stl) | [PriceRoofsAFW.stl](hotels/PriceRoofsAFW.stl) | [StockCertificateW.stl](stock-certificates/StockCertificateW.stl) |
 | Continental | Light blue | [HotelC.stl](hotels/HotelC.stl) | [PriceRoofsCI.stl](hotels/PriceRoofsCI.stl) | [StockCertificateC.stl](stock-certificates/StockCertificateC.stl) |
 | Imperial | Orange | [HotelI.stl](hotels/HotelI.stl) | [PriceRoofsCI.stl](hotels/PriceRoofsCI.stl) | [StockCertificateI.stl](stock-certificates/StockCertificateI.stl) |
 

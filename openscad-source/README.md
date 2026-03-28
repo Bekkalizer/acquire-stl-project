@@ -9,7 +9,7 @@
     \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
                             \___|                                      
       
-    Print and play - OpenScad project - by Bekkalizer and ChatGPT - GPLv3
+    Print and play - OpenScad project - by Bekkalizer and Claude - GPLv3
 
 # Guide to the source files
 
@@ -31,11 +31,19 @@
 
 [HotelI.scad](HotelI.scad) contains the code for rendering [HotelI.stl](../stl-renders/HotelI.stl).
 
-[StockCertificateL.scad](StockCertificateL.scad) contains the code for rendering [StockCertificateL.stl](../stl-renders/StockCertificateL.stl).
+[StockCertificateL.scad](StockCertificateL.scad) contains the code for rendering [StockCertificateL.stl](../stl-renders/stock-certificates/StockCertificateL.stl).
 
-[StockCertificateC.scad](StockCertificateC.scad) contains the code for rendering [StockCertificateC.stl](../stl-renders/StockCertificateC.stl).
+[StockCertificateT.scad](StockCertificateT.scad) contains the code for rendering [StockCertificateT.stl](../stl-renders/stock-certificates/StockCertificateT.stl).
 
-[StockCertificateI.scad](StockCertificateI.scad) contains the code for rendering [StockCertificateI.stl](../stl-renders/StockCertificateI.stl).
+[StockCertificateA.scad](StockCertificateA.scad) contains the code for rendering [StockCertificateA.stl](../stl-renders/stock-certificates/StockCertificateA.stl).
+
+[StockCertificateF.scad](StockCertificateF.scad) contains the code for rendering [StockCertificateF.stl](../stl-renders/stock-certificates/StockCertificateF.stl).
+
+[StockCertificateW.scad](StockCertificateW.scad) contains the code for rendering [StockCertificateW.stl](../stl-renders/stock-certificates/StockCertificateW.stl).
+
+[StockCertificateC.scad](StockCertificateC.scad) contains the code for rendering [StockCertificateC.stl](../stl-renders/stock-certificates/StockCertificateC.stl).
+
+[StockCertificateI.scad](StockCertificateI.scad) contains the code for rendering [StockCertificateI.stl](../stl-renders/stock-certificates/StockCertificateI.stl).
 
 [PriceRoofs.scad](PriceRoofs.scad) contains the code for rendering [PriceRoofsLT.stl](../stl-renders/PriceRoofsLT.stl), [PriceRoofsAFW.stl](../stl-renders/PriceRoofsAFW.stl) and [PriceRoofsCI.stl](../stl-renders/PriceRoofsCI.stl) using different starting prices.
 
