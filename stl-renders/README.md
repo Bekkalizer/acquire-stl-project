@@ -9,10 +9,10 @@
     \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
                             \___|                                      
       
-    Print and play - OpenScad project - by Bekkalizer and Claude - GPLv3
+    Print and play - OpenScad project - by Bekkalizer - GPLv3
 
 # Guide to printing your own game
-Poker chips and the [reduced $ reference sheet](https://boardgamegeek.com/filepage/263169/acquire-stockholder-info-sheet-reduced-dollar) from boardgame geek is the recommended non-printable components you would need. For everything else, print the game pieces by the instructions below.
+Poker chips and the [stockholder reference sheet](../docs/index.html) is the recommended non-printable components you would need. For everything else, print the game pieces by the instructions below.
 
 ## Boards
 **TLDR: Print all files in [board-9pcs](board-9pcs)**

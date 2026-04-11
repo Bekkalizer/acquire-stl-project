@@ -9,7 +9,7 @@
 //    \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
 //                            \___|                                      
 //      
-//       Print and play - OpenScad project - by Bekkalizer and ChatGPT
+//       Print and play - OpenScad project - by Bekkalizer - GPLv3
 // 
 // This file is part of the Acquire stl project.
 // Copyright (C) 2025 Bekkalizer

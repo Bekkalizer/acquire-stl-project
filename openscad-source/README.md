@@ -9,7 +9,7 @@
     \__|  \__| \______/  \___$$$\  \______/ \______|\__|  \__|\________|
                             \___|                                      
       
-    Print and play - OpenScad project - by Bekkalizer and Claude - GPLv3
+    Print and play - OpenScad project - by Bekkalizer - GPLv3
 
 # Guide to the source files
 
